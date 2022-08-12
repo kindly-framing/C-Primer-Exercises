@@ -15,9 +15,10 @@
  */
 #include <cstring>
 #include <iostream>
-#include <new>
-
-char buffer[50];
+#include <new> // for placement new
+const int BUF = 512;
+const int N = 2;
+char buffer[BUF]; // chunk of memory
 
 struct chaff {
     char dross[20];
@@ -26,7 +27,22 @@ struct chaff {
 
 int main()
 {
-    chaff *p1, *p2;
+    using namespace std;
+    chaff *pc;
+    pc = new (buffer) chaff[N]; // using buffer array
 
+    // assigning values
+    for (int i = 0; i < N; i++) {
+        strcpy(pc[i].dross, "Dross");
+        pc[i].slag = i + 1;
+    }
+
+    // printing contents of array
+    cout << "Chaffs:\n";
+    for (int i = 0; i < N; i++) {
+        cout << pc[i].dross << ' ' << pc[i].slag << endl;
+    }
+
+    delete[] pc;
     return 0;
 }
