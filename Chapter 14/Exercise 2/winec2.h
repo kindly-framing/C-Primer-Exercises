@@ -1,19 +1,16 @@
-#ifndef WINEC_H_
-#define WINEC_H_
+#ifndef WINEC2_H_
+#define WINEC2_H_
 #include <string>
 #include <utility>
 #include <valarray>
 
-// simplifies the code
 typedef std::valarray<int> ArrayInt;
 typedef std::pair<ArrayInt, ArrayInt> PairArray;
 
-// wine class
-class Wine {
+class Wine : ArrayInt, PairArray {
   private:
     std::string label;
     int years;
-    PairArray yearAndBottles;
 
   public:
     // initialize label to 1, number of years to y, vintage years to yr[],
