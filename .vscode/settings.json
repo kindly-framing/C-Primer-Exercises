@@ -51,6 +51,7 @@
     "valarray": "cpp",
     "deque": "cpp",
     "queue": "cpp",
-    "random": "cpp"
+    "random": "cpp",
+    "list": "cpp"
   }
 }
